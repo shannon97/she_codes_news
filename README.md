@@ -63,3 +63,4 @@
 
 # username: admin - password: admin
 # username: guestuser - password: testaccount
+# username: guestuser2 - password: testaccount2

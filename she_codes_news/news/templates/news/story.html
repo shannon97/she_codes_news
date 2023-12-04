@@ -6,12 +6,37 @@
 {% endblock %}
 
 {% block content %}
-    <div id="story-wrapper">
+
+<div id="story-wrapper">
+
     <h2>{{ story.title }}</h2>
     <h4>{{ story.author }}</h4>
+    <p class="auth-pub">Posted: {{ story.pub_date|date:'d M y' }}</p>
+
     <div id="story-content">
-        <img src="{% static '/news/images/placeholder-5.jpg' %}">
+        {% if story.story_image %}
+        <img src="{{story.story_image}}">
+        {% else %}
+        <img src="https://picsum.photos/600">
+        {% endif %}
         {{ story.content|linebreaks }}
     </div>
+
 </div>
+
+<div id="comments_form">
+    <form method="post" action="{% url 'news:newComment' story.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button id="btn_add_comment" type="submit">Add a new comment</button>
+    </form>
+</div>
+
+<div id="comments_section">
+    {% for comment in comments %}
+        <p>{{ comment.author }} commented on {{comment.created_on|date:'d M Y'}}</p>
+        <p>{{ comment.body }}</p>
+    {% endfor %}
+</div>
+
 {% endblock %}
