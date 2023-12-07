@@ -62,5 +62,7 @@
     ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
 
 # username: admin - password: admin
+# emails v guest@guest.com
 # username: guestuser - password: testaccount
 # username: guestuser2 - password: testaccount2
+# username: guestuser3 - password: testaccount3

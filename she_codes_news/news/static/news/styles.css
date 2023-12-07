@@ -87,3 +87,15 @@
     margin: 0 0 10px 10px;
     width: 50%;
 }
+
+#user_stories {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr);
+    gap: 10px;
+}
+
+.acc_story_grid {
+    border: 1px solid rgba(245, 245, 245, 0.20);
+    border-radius: 10px;
+    padding: 5px;
+}

@@ -1,11 +1,11 @@
 from typing import Any
 from django.forms.models import BaseModelForm
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 from django.urls import reverse_lazy, reverse
 from .models import NewsStory, Comments
 from .forms import StoryForm, CommentsForm
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 
 
 class IndexView(generic.ListView):
@@ -30,7 +30,9 @@ class StoryView(generic.DetailView):
         context = super().get_context_data(**kwargs)
         story = self.get_object()
         comments = story.comments.filter(active=True)
-        context['comments'] = comments
+        context['newComment'] = comments
+        # context['form'] = CommentsForm
+        # context['comments'] = Comments.objects
         return context
 
 class AddStoryView(generic.CreateView):
@@ -42,10 +44,31 @@ class AddStoryView(generic.CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super() .form_valid(form)
+    
+class EditStoryView(generic.UpdateView):
+    form_class = StoryForm
+    model = NewsStory
+    context_object_name = 'storyform'
+    template_name = 'news/createStory.html'
+    success_url = reverse_lazy('news:index')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    
+    def post(self, request, *args, **kwargs):
+        if "delete" in request.POST:
+            self.get_object().delete()
+            return HttpResponseRedirect(reverse('news:index'))
+        return super().post(request, *args, **kwargs)
+
 
 class NewCommentView(generic.CreateView):
     form_class = CommentsForm
     template_name = 'news/comments.html'
+
+    def get(self, request, *args, **kwargs):
+        return redirect("news:story", pk=self.kwargs.get("pk"))
 
     def form_valid(self, form):
         form.instance.author = self.request.user

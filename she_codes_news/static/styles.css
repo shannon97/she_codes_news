@@ -44,9 +44,9 @@ h3 {
 }
 
 nav {
-    flex-basis: 10%;
+    flex-basis: 20%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-end;
 }
 
@@ -60,7 +60,7 @@ a, p {
     font-family: monospace;
 }
 
-#form {
+form {
     text-align: center;
     flex-direction: column;
     display: flex;
@@ -68,12 +68,28 @@ a, p {
 
 .comments_form {
     justify-content: center;
-    display: flex;
 }
 
-.btn_sub {
+.btn_sub,
+.btn_story,
+.btn_add_comment,
+.btn_edit_story {
     background-color: antiquewhite;
-    width: 200px;
+    border-radius: 10px;
+    align-items: center;
+    width: 100px;
     height: 30px;
     border: 1px solid #000;
+}
+
+#user_stories {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr);
+    gap: 10px;
+}
+
+.acc_story_grid {
+    border: 1px solid rgba(245, 245, 245, 0.20);
+    border-radius: 10px;
+    padding: 5px;
 }

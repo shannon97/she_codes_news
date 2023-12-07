@@ -10,7 +10,7 @@
 <div id="story-wrapper">
 
     <h2>{{ story.title }}</h2>
-    <h4>{{ story.author }}</h4>
+    <h4><a href="{% url 'users:myAccount' story.author.id %}">{{ story.author }}</a></h4>
     <p class="auth-pub">Posted: {{ story.pub_date|date:'d M y' }}</p>
 
     <div id="story-content">
@@ -22,21 +22,47 @@
         {{ story.content|linebreaks }}
     </div>
 
+    {% if request.user.is_authenticated and user == story.author %}
+        <a href="{% url 'news:editStory' pk=story.pk %}" class="btn_edit_story">Edit Story</a>
+    {% endif %}
+
+    {% if request.user.is_authenticated and user == story.author %}
+    <form method="post" action="{% url 'news:editStory' story.id %}">
+        {% csrf_token %}
+        <input type="submit" name="delete" value="Delete Story">
+    </form>
+    {% endif %}
+
 </div>
 
+
 <div id="comments_form">
+    {% if story.id %}
     <form method="post" action="{% url 'news:newComment' story.id %}">
         {% csrf_token %}
         {{ form.as_p }}
+        {% if request.user.is_authenticated %}
         <button id="btn_add_comment" type="submit">Add a new comment</button>
+        {% endif %}
     </form>
+    {% endif %}
 </div>
 
-<div id="comments_section">
+<!-- <div id="comments_section">
     {% for comment in comments %}
         <p>{{ comment.author }} commented on {{comment.created_on|date:'d M Y'}}</p>
         <p>{{ comment.body }}</p>
     {% endfor %}
-</div>
+</div> -->
+
+<ul>
+    <h4>Comments:</h4>
+    {% for comment in comments %}
+    <li class="comments_section">
+        <p>{{ comment.author }} commented on {{comment.created_on|date:'d M Y'}}</p>
+        <p>{{ comment.body }}</p>
+    </li>
+    {% endfor %}
+</ul>
 
 {% endblock %}

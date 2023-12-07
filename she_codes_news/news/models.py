@@ -12,6 +12,9 @@ class NewsStory(models.Model):
     content = models.TextField()
     story_image = models.URLField(blank=True, null=True)
 
+    def delete_story(self, user):
+        return user == self.author
+
 class Comments(models.Model):
     post = models.ForeignKey(NewsStory, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(
