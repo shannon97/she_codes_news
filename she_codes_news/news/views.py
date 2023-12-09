@@ -31,8 +31,7 @@ class StoryView(generic.DetailView):
         story = self.get_object()
         comments = story.comments.filter(active=True)
         context['newComment'] = comments
-        # context['form'] = CommentsForm
-        # context['comments'] = Comments.objects
+        context['form'] = CommentsForm
         return context
 
 class AddStoryView(generic.CreateView):
@@ -64,8 +63,10 @@ class EditStoryView(generic.UpdateView):
 
 
 class NewCommentView(generic.CreateView):
+    model = Comments
     form_class = CommentsForm
     template_name = 'news/comments.html'
+    context_object_name = CommentsForm
 
     def get(self, request, *args, **kwargs):
         return redirect("news:story", pk=self.kwargs.get("pk"))

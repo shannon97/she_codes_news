@@ -42,27 +42,21 @@
         {% csrf_token %}
         {{ form.as_p }}
         {% if request.user.is_authenticated %}
-        <button id="btn_add_comment" type="submit">Add a new comment</button>
+        <input class="btn_add_comment" type="submit" value="Add Comment">
         {% endif %}
     </form>
     {% endif %}
 </div>
 
-<!-- <div id="comments_section">
-    {% for comment in comments %}
-        <p>{{ comment.author }} commented on {{comment.created_on|date:'d M Y'}}</p>
-        <p>{{ comment.body }}</p>
-    {% endfor %}
-</div> -->
-
-<ul>
+<div id="comment_section">
     <h4>Comments:</h4>
-    {% for comment in comments %}
-    <li class="comments_section">
-        <p>{{ comment.author }} commented on {{comment.created_on|date:'d M Y'}}</p>
-        <p>{{ comment.body }}</p>
-    </li>
+    {% for comment in story.comments.all %}
+        <p>{{ comment.author }} commented on {{comment.created_on|date:'d M Y'}}:<br>
+        {{ comment.body }}</p>
+
+    {% empty %}
+        <p>There are no comments on this story yet!</p>
     {% endfor %}
-</ul>
+</div>
 
 {% endblock %}

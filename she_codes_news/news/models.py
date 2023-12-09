@@ -26,5 +26,5 @@ class Comments(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
 
-    def __str__(self):
-        return f"{self.author} said: {self.created_on}"
+    # def __str__(self):
+    #     return f"{self.author} said: {self.created_on}"
