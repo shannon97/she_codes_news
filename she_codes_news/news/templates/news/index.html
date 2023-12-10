@@ -9,6 +9,7 @@
 
 <br>
 
+<section id="latest-news">
 <h2>Latest News</h2>
 
     <div id="latest-stories">
@@ -23,16 +24,26 @@
         {% endif %}
     </div>
 
-    <div id="all-stories">
-        {% if latest_stories %}
-            {% for story in all_stories %}
-            {% include './storyCard.html' with story=story %}
-            {% endfor %}
+    <div id="all-stories-carousel">
+        <h2>Other Stories</h2>
+        
+        <div id="all-stories">
+            {% if latest_stories %}
+                {% for story in all_stories %}
+                {% include './storyCard.html' with story=story %}
+                {% endfor %}
 
-        {% else %}
-            <p>No stories are available.</p>
+            {% else %}
+                <p>No stories are available.</p>
 
-        {% endif %}
+            {% endif %}
+        </div>
+
+    <!-- <div id="caro-left-btn" onclick="scrollCarousel('left')">(</div>
+    <div id="caro-right-btn" onclick="scrollCarousel('right')">)</div> -->
+
     </div>
+
+</section>
 
 {% endblock %}

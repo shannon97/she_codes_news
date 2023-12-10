@@ -15,27 +15,31 @@
 
 #latest-stories {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    gap: 1px 1px;
+    gap: 5px 5px;
     grid-template-areas: "left-1 right-1" "left-1 right-2" "left-1 right-3";
     max-height: 500px;
 }
 
 #story-card-1 {
     grid-area: left-1;
+    /* width: 30%; */
 }
 
 #story-card-2 {
     grid-area: right-1;
+    /* width: 50%; */
 }
 
 #story-card-3 {
     grid-area: right-2;
+    /* width: 50%; */
 }
 
 #story-card-4 {
     grid-area: right-3;
+    /* width: 50%; */
 }
 
 #story-card-2 a,
@@ -50,7 +54,7 @@
 #story-card-2 .story-card-text h3,
 #story-card-3 .story-card-text h3,
 #story-card-4 .story-card-text h3 {
-    font-size: 16px;
+    width:80%;
 }
 
 #story-card-2 .story-card-text h4,
@@ -69,23 +73,55 @@
 
 #all-stories {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    overflow-x: scroll;
+    /* scroll-snap-type: x mandatory;
+    white-space: nowrap;
+    margin-top: 20px;
+    max-width: 33%; */
 }
 
 #all-stories .story-card {
-    flex-basis: 32%;
-    flex-grow: 1;
+    flex: 0 0 auto;
+    width: 300px;
+    margin-right: 10px;
+    scroll-snap-align: start;
 }
+
+#all-stories-carousel {
+    position: relative;
+    max-width: 100%;
+}
+
+/* #caro-left-btn,
+#caro-right-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(50%);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#caro-left-btn {
+    left: 10px;
+}
+
+#caro-right-btn {
+    left: 10px;
+} */
 
 #story-content {
     text-align: justify;
 }
 
+#story-wrapper {
+    display: flex;
+}
+
 #story-content img {
-    float: right;
-    margin: 0 0 10px 10px;
-    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    width: 100%;
 }
 
 #user_stories {
