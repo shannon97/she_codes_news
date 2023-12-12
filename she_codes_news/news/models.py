@@ -10,7 +10,8 @@ class NewsStory(models.Model):
     )
     pub_date = models.DateTimeField()
     content = models.TextField()
-    story_image = models.URLField(blank=True, null=True)
+    story_image_url = models.URLField(blank=True, null=True)
+    story_image = models.ImageField(upload_to='uploadImgs', blank=True, null=True)
 
     def delete_story(self, user):
         return user == self.author

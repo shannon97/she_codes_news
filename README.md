@@ -1,18 +1,10 @@
-# {{ Shannon }} - She Codes News Project
+# Shannon Oliver - She Codes News Project
 
 ## About This Project
-{{ Give a brief description of your project here. What is it for, how do you useit? }}
+ Our class had to create a news website using Django with some starter code (https://github.com/SheCodesAus/plus-django-news-project-template) that allows users to read news stories, and authors to create them.
 
 ## How To Run This Code
-{{
-    Give a quick step-by-step guide on how to download and run your codebase.
-    
-    It's ok to assume the reader is another developer here, so don't feel like youhave to explain what a virtual environment is, etc.
-    
-    Give directions like "clone the repo to your local machine", "create a virtualenvironment", "migrate the database", etc.
-    
-    When you need to specify terminal commands, you can surround them withbackticks, like so: `python manage.py runserver`. This formats them ascode in the markdown document. (The backtick key is to the left of thenumber 1 at the top of your keyboard.)
-}}
+   First clone the repo from to your local machine, then create and activate a virtualenvironment (venv) to be able to run your server through the manage.py file to see my website.
 
 ## Database Schema
 ![ {{ My ERD }} ]( {{ ./relative_path_to_your_entity_relationship_diagram }} )
@@ -21,38 +13,38 @@
 - [ ] Order stories by date
     ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
 
-- [ ] Styled "new story" form
+- [X] Styled "new story" form
     ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
 
-- [ ] Story images
+- [X] Story images
     ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
 
-- [ ] Log-in/log-out
+- [X] Log-in/log-out
     ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
     
-- [ ] "Account view" page
+- [X] "Account view" page
     ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
     
-- [ ] "Create Account" page
+- [X] "Create Account" page
     ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
     
-- [ ] View stories by author
+- [X] View stories by author
     ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
     
-- [ ] "Log-in" button only visible when no user is logged in/"Log-out" buttononly visible when a user *is* logged in
+- [X] "Log-in" button only visible when no user is logged in/"Log-out" buttononly visible when a user *is* logged in
     ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
 
-- [ ] "Create Story" functionality only available when user is logged in
+- [X] "Create Story" functionality only available when user is logged in
     ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
 
 ## Additional Features:
 - [ ] Add categories to the stories and allow the user to search for stories bycategory.
     ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
     
-- [ ] Add the ability to update and delete stories (consider permissions - whoshould be allowed to update or and/or delete stories).
+- [X] Add the ability to update and delete stories (consider permissions - whoshould be allowed to update or and/or delete stories).
     ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
     
-- [ ] Add the ability to “favourite” stories and see a page with your favouritestories.
+- [X] Add the ability to comment on stories and see a list of other comments(if there are any).
     ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
     
 - [ ] Our form for creating stories requires you to add the publication date,update this to automatically save the publication date as the day thestory was first published (maybe you could then add a field to showwhen the story was updated).

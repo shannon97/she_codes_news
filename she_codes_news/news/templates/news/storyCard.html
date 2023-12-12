@@ -1,12 +1,19 @@
 <div class="story-card" id="story-card-{{ position }}">
 
     <a href="{% url 'news:story' story.id %}">
+
         {% if story.story_image %}
-            <img src="{{story.story_image}}">
+            <img src="{{ story.story_image.url }}">
 
         {% else %}
-            <img src="https://picsum.photos/600">
+            <img src="
+            {% if story.story_image_url %}
+            {{ story.story_image_url }}
+            {% else %}
+            https://picsum.photos/600
+            {% endif %}">
 
+            
         {% endif %}
         
         <div class="story-card-text">
