@@ -7,54 +7,53 @@
    First clone the repo from to your local machine, then create and activate a virtualenvironment (venv) to be able to run your server through the manage.py file to see my website.
 
 ## Database Schema
-![ {{ My ERD }} ]( {{ ./relative_path_to_your_entity_relationship_diagram }} )
+DB Schema2.png
 
 ## Project Features
-- [ ] Order stories by date
-    ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
+- [X] Order stories by date
+    ![Latest Stories date ordered](<latest stories order by date.png>)![Other Stories date ordered](<other stories order by date.png>)
 
 - [X] Styled "new story" form
-    ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
-
-- [X] Story images
-    ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
+    ![Create New Story Form](<create story form.png>)
 
 - [X] Log-in/log-out
-    ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
+    ![Login Page](<login page.png>)![Logout Button](<logout btn .png>)
     
 - [X] "Account view" page
-    ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
+    !![Own Profile View](<userAcc view.png>)
     
 - [X] "Create Account" page
-    ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
+    ![Create Account Form](<createAcc form.png>)![Create Account Button](createAcc-btn.png)
     
 - [X] View stories by author
-    ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
+    ![Other Account View](<other auther acc-story view.png>)
     
-- [X] "Log-in" button only visible when no user is logged in/"Log-out" buttononly visible when a user *is* logged in
-    ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
+- [X] "Log-in" button only visible when no user is logged in/"Log-out" button only visible when a user logged in
+    !{{ As seen is screenshots above }}
 
 - [X] "Create Story" functionality only available when user is logged in
-    ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
+    ![No button - not logged in](<no login-no create.png>)![Create button - logged in](<login-create btn.png>)
 
 ## Additional Features:
-- [ ] Add categories to the stories and allow the user to search for stories bycategory.
-    ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
     
-- [X] Add the ability to update and delete stories (consider permissions - whoshould be allowed to update or and/or delete stories).
-    ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
+- [X] Add the ability to update and delete stories.
+    ![Edit/Delete story buttons](<edit-delete story btn.png>)
     
 - [X] Add the ability to comment on stories and see a list of other comments(if there are any).
-    ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
+    ![View if no comments](<no comment view.png>)![View if comments](<comments view.png>)
     
-- [ ] Our form for creating stories requires you to add the publication date,update this to automatically save the publication date as the day thestory was first published (maybe you could then add a field to showwhen the story was updated).
-    ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
+- [X] Add the ability to upload an image from your local files OR paste in your own img URL when creating a story.
+    ![Upload image Button](<upload img btn.png>)
+    
+- [X] All stories now show in a line with a scroll bar to look through.
+    !![Scroll other stories](<Scroll stories.png>)
+    
 
-- [ ] Gracefully handle the error where someone tries to create a new story whenthey are not logged in.
-    ![ {{ Description of image }} ]( {{ ./relative_path_to_image_file }} )
+## Test accounts - guest/1/2/3@guest.com & admin@admin.com
+username: admin - password: admin
+    
+username: guestuser - password: testaccount
 
-# username: admin - password: admin
-# emails v guest@guest.com
-# username: guestuser - password: testaccount
-# username: guestuser2 - password: testaccount2
-# username: guestuser3 - password: testaccount3
+username: guestuser2 - password: testaccount2
+
+username: guestuser3 - password: testaccount3

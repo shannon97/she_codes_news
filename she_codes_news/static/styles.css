@@ -106,14 +106,17 @@ form select {
 .btn_sub,
 .btn_story,
 .btn_add_comment,
-.btn_edit_story {
+.button,
+.btn_edit_story,
+.btn_delete_story {
     display: flex;
+    justify-content: center;
     background-color: antiquewhite;
     border-radius: 10px;
     text-align: center;
     width: 100px;
     height: 30px;
-    border: 1px solid #000;
+    border: 1px solid rgba(231, 158, 115);
 }
 
 #user_stories {

@@ -14,11 +14,13 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         '''Return all news stories.'''
-        return NewsStory.objects.all()
+        return NewsStory.objects.all().order_by('-pub_date')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['latest_stories'] = NewsStory.objects.all().order_by('-pub_date')[:4]
+        all_stories = self.get_queryset()
+        context['latest_stories'] = all_stories[:4]
+        context['all_stories'] = all_stories[4:]
         return context
     
 class StoryView(generic.DetailView):

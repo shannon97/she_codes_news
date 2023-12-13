@@ -57,7 +57,7 @@
     {% if request.user.is_authenticated and user == story.author %}
     <form method="post" action="{% url 'news:editStory' story.id %}">
         {% csrf_token %}
-        <input type="submit" name="delete" value="Delete Story">
+        <input class="btn_delete_story" name="delete" value="Delete Story">
     </form>
     {% endif %}
 
