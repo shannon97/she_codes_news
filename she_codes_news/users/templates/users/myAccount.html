@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+
+
+<style>
+    
+        #my_profile {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        #accImg {
+            margin-left: 20%;
+        }
+
+        #accImg img {
+            max-width: 80%;
+            height: auto;
+            border: 1px solid rgba(245, 245, 245, 0.20);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        #accInfo {
+            /* flex: 1; */
+            margin-right: 20%;
+        }
+
+        #user_stories {
+            display: flex;
+            justify-content: center;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            white-space: nowrap;
+            margin-top: 20px;
+        }
+
+    /* * {
+        border: 1px solid red;
+    } */
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<h2>{{ userAcc.username }}'s Profile</h2>
+
+<section id="my_profile">
+
+    <div id="accImg">
+        <img src="{{ userAcc.user_img }}" alt="Profile Pic">
+    </div>
+
+    <div id="accInfo">
+    {% if request.user.is_authenticated %}
+    <p><h3>Username: </h3>{{ userAcc.username }}</p>
+    <p><h3>Email: </h3>{{ userAcc.email }}</p>
+    <p><h3>About: </h3>{{ userAcc.about }}</p>
+    {% endif %}
+
+    {% if userAcc.username == user.username %}
+    <a href="{% url 'users:editAccount' request.user.id %}"><button class="btn_edit_acc">Edit My Account</button></a>
+    {% endif %}
+    </div>
+
+</section> 
+
+
+    <h2>Stories posted by {{ userAcc.username }}:</h2>
+
+    {% if userAcc.newsstory_set.all %}
+    <div id="user_stories">
+        {% for story in userAcc.newsstory_set.all %}
+        {% include 'news/storyCard.html' with story=story %}
+        {% endfor %}
+    </div>
+
+    {% else %}
+    <p>Oh no! They haven't posted a story yet!</p>
+    {% endif %} 
+
+{% endblock %}

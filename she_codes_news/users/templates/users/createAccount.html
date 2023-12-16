@@ -1,0 +1,42 @@
+<!-- users/templates/users/createAccount.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+
+<style>
+
+    /* * {
+        border: 1px solid red;
+    } */
+
+    #AccountForm {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<div id="newAccForm">
+
+    <h2>Sign Up!</h2>
+
+    <form method="post" id="AccountForm">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create Account</button>
+    </form>
+
+</div>
+
+    {% endblock %}
