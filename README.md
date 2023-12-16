@@ -7,7 +7,7 @@
    First clone the repo from to your local machine, then create and activate a virtualenvironment (venv) to be able to run your server through the manage.py file to see my website.
 
 ## Database Schema
-![ERD](<DB Schema2-1.png>)
+![ERD](<DB Schema2.png>)
 
 ## Project Features
 - [X] Order stories by date
